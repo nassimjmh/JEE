@@ -1,0 +1,6 @@
+target/
+.idea/
+*.iml
+desktop.ini
+.DS_Store
+*.log
