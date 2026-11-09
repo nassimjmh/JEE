@@ -21,9 +21,13 @@ docker build -t hello-service .
 Container : 
 docker run -d --name hello1 -p 8080:8080 hello-service .
 
-TP1 : 
-  - hello-service
 
-TP2 :
- - produit-service
- - client-service
+| TP | Service | Dependencies |
+|---|---|---|
+TP1 | `hello-service` | Spring Web
+TP2 | `produit-service`<br> `client-service` | Spring Web
+
+
+Ajouter un produit : `curl -X POST http://localhost:8080/produits \
+     -H "Content-Type: application/json" \
+     -d '{"id": 4, "nom": "Telephone", "prix": 800}'`
