@@ -12,5 +12,6 @@
         <module>client-service</module>
         <module>hello-service</module>
         <module>produit-service</module>
+        <module>philosophe</module>
     </modules>
 </project>
