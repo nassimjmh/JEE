@@ -13,5 +13,8 @@
         <module>hello-service</module>
         <module>produit-service</module>
         <module>philosophe</module>
+        <module>kafka-clients-service</module>
+        <module>kafka-commandes-service</module>
+        <module>kafka-statistiques-service</module>
     </modules>
 </project>

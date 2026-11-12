@@ -60,3 +60,9 @@ Chaque philosophe exécute une boucle jusqu'à avoir mangé **3 repas** :
 - `GET /philosophe/fourchette` : Permet à un voisin d'emprunter la fourchette locale (méthode `synchronized`).
 - `POST /philosophe/rendre-fourchette` : Permet à un voisin de restituer la fourchette locale.
 - `GET /philosophe/etat` : Affiche l'état courant du philosophe.
+
+
+# TP3 KAFKA
+
+docker compose up -d
+   
