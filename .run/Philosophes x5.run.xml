@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Philosophes x5" type="CompoundRunConfigurationType">
+    <toRun name="PhilosopheApplication (1)" type="SpringBootApplicationConfigurationType" />
+    <toRun name="PhilosopheApplication (2)" type="SpringBootApplicationConfigurationType" />
+    <toRun name="PhilosopheApplication (3)" type="SpringBootApplicationConfigurationType" />
+    <toRun name="PhilosopheApplication (4)" type="SpringBootApplicationConfigurationType" />
+    <toRun name="PhilosopheApplication (5)" type="SpringBootApplicationConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

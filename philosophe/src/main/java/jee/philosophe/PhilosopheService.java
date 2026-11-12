@@ -2,6 +2,8 @@ package jee.philosophe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,7 +19,7 @@ public class PhilosopheService {
     private String etatActuel = "RÉFLÉCHIR";
     private boolean fourchetteDisponible = true;
  
-
+    // Synchronized : un seul thread à la fois
     public synchronized boolean preterFourchette() {
         if (fourchetteDisponible && !"MANGER".equals(etatActuel)) {
             fourchetteDisponible = false;
@@ -28,6 +30,7 @@ public class PhilosopheService {
         return false;
     }
 
+    // Synchronized : un seul thread à la fois
     public synchronized void recupererFourchette() {
         fourchetteDisponible = true;
         System.out.println("[PHILOSOPHE " + philosopherId + "] Ma fourchette a été rendue.");
@@ -100,7 +103,7 @@ public class PhilosopheService {
 
         boolean aGauche = demanderUneFourchette(urlGauche);
         if (!aGauche) {
-            // Repli : on rend immédiatement la fourchette droite si la gauche est prise
+            // Repli : on rend immédiatement la fourchette droite si la gauche est prise pr pas ostage une seule fourchette
             rendreUneFourchette(urlDroite);
             return false;
         }
@@ -130,4 +133,21 @@ public class PhilosopheService {
             System.err.println("[PHILOSOPHE " + philosopherId + "] Erreur lors de la restitution à " + baseUrl);
         }
     }
+
+    // Lance le cycle automatiquement sans curl
+    @EventListener(ApplicationReadyEvent.class)
+    public void demarrerAutomatiquement() {
+        new Thread(() -> {
+            try {
+                Thread.sleep(15000);
+                System.out.println("[PHILOSOPHE " + philosopherId + "] Démarrage automatique du cycle !");
+                executerCyclePhilosophe();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }).start();
+    }
+
+
+
 }
