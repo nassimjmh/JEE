@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="PhilosopheApplication (4)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
-    <option name="ALTERNATIVE_JRE_PATH" value="21" />
+    <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <module name="philosophe" />
     <option name="PROGRAM_PARAMETERS" value="--philosopher.id=4 --server.port=8084" />
